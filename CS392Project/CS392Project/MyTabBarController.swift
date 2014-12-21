@@ -14,29 +14,44 @@ class MyTabBarController: UITabBarController {
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(true)
-    if let userPhoneNumber = getUserPhoneNumber() {
-      self.userPhoneNumber = userPhoneNumber
-      if !isPhoneNumberRegistered() {
-        performSegueWithIdentifier("register", sender: self)
+    if !login() {
+      performSegueWithIdentifier("login", sender: self)
+    }
+  }
+  
+  private func login() -> Bool {
+    if let userName = getUserName() {
+      if let password = getPassword() {
+        if login(userName, password: password) {
+          return true
+        }
       }
-    } else {
-      NSLog("A problem occurred while getting user's phone number!")
     }
+    
+    return false
   }
   
-  private func getUserPhoneNumber() -> String? {
-    return "amcik"
+  // To be implemented..
+  private func getUserName() -> String? {
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    if let username: AnyObject = userDefaults.objectForKey("username") {
+      return username as? String
+    }
+    return nil
   }
   
-  private func isPhoneNumberRegistered() -> Bool {
+  // To be implemented..
+  private func getPassword() -> String? {
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    if let password: AnyObject = userDefaults.objectForKey("password") {
+      return password as? String
+    }
+    return nil
+  }
+  
+  // To be implemented..
+  private func login(userName: String, password: String) -> Bool {
     return true
-  }
-  
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "register" {
-      let registerVC = segue.destinationViewController as RegisterVC
-      registerVC.tempPhoneNumber = self.userPhoneNumber
-    }
   }
   
 }

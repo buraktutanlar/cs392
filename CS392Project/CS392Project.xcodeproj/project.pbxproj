@@ -16,6 +16,9 @@
 		CF1D0BB81A45B88C0081EB59 /* CS392ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0BB71A45B88C0081EB59 /* CS392ProjectTests.swift */; };
 		CF1D0BC21A45D4530081EB59 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0BC11A45D4530081EB59 /* MyTabBarController.swift */; };
 		CF1D0BC41A45DE1A0081EB59 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0BC31A45DE1A0081EB59 /* RegisterVC.swift */; };
+		CFA2D31C1A473BBA000458C8 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA2D31B1A473BBA000458C8 /* LoginVC.swift */; };
+		CFA2D31E1A47451D000458C8 /* ContactsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA2D31D1A47451D000458C8 /* ContactsTableVC.swift */; };
+		CFA2D3201A474D1A000458C8 /* AddContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA2D31F1A474D1A000458C8 /* AddContactVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,9 @@
 		CF1D0BB71A45B88C0081EB59 /* CS392ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CS392ProjectTests.swift; sourceTree = "<group>"; };
 		CF1D0BC11A45D4530081EB59 /* MyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		CF1D0BC31A45DE1A0081EB59 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		CFA2D31B1A473BBA000458C8 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		CFA2D31D1A47451D000458C8 /* ContactsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableVC.swift; sourceTree = "<group>"; };
+		CFA2D31F1A474D1A000458C8 /* AddContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				CF1D0BC31A45DE1A0081EB59 /* RegisterVC.swift */,
+				CFA2D31D1A47451D000458C8 /* ContactsTableVC.swift */,
+				CFA2D31B1A473BBA000458C8 /* LoginVC.swift */,
 				CF1D0BC11A45D4530081EB59 /* MyTabBarController.swift */,
 				CF1D0B9F1A45B88C0081EB59 /* AppDelegate.swift */,
 				CF1D0BA11A45B88C0081EB59 /* FirstViewController.swift */,
@@ -92,6 +100,7 @@
 				CF1D0BA81A45B88C0081EB59 /* Images.xcassets */,
 				CF1D0BAA1A45B88C0081EB59 /* LaunchScreen.xib */,
 				CF1D0B9D1A45B88C0081EB59 /* Supporting Files */,
+				CFA2D31F1A474D1A000458C8 /* AddContactVC.swift */,
 			);
 			path = CS392Project;
 			sourceTree = "<group>";
@@ -221,8 +230,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFA2D31E1A47451D000458C8 /* ContactsTableVC.swift in Sources */,
 				CF1D0BA41A45B88C0081EB59 /* SecondViewController.swift in Sources */,
 				CF1D0BC21A45D4530081EB59 /* MyTabBarController.swift in Sources */,
+				CFA2D3201A474D1A000458C8 /* AddContactVC.swift in Sources */,
+				CFA2D31C1A473BBA000458C8 /* LoginVC.swift in Sources */,
 				CF1D0BA01A45B88C0081EB59 /* AppDelegate.swift in Sources */,
 				CF1D0BA21A45B88C0081EB59 /* FirstViewController.swift in Sources */,
 				CF1D0BC41A45DE1A0081EB59 /* RegisterVC.swift in Sources */,
@@ -417,6 +429,7 @@
 				CF1D0BBD1A45B88C0081EB59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF1D0BBE1A45B88C0081EB59 /* Build configuration list for PBXNativeTarget "CS392ProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +438,7 @@
 				CF1D0BC01A45B88C0081EB59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
