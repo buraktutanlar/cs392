@@ -14,11 +14,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contantCell" id="970-yH-R4y">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCell" id="970-yH-R4y" customClass="ContactCell" customModule="CS392Project" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="970-yH-R4y" id="tKD-fP-M2k">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="offline" translatesAutoresizingMaskIntoConstraints="NO" id="w0T-XI-x0f">
+                                            <rect key="frame" x="580" y="16" width="12" height="12"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhA-QR-3jS">
+                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="mhA-QR-3jS" secondAttribute="bottom" constant="3" id="3W7-gR-og9"/>
+                                        <constraint firstAttribute="centerY" secondItem="w0T-XI-x0f" secondAttribute="centerY" constant="-0.5" id="43Z-Fg-wDy"/>
+                                        <constraint firstItem="w0T-XI-x0f" firstAttribute="trailing" secondItem="tKD-fP-M2k" secondAttribute="trailingMargin" id="CBX-wF-z9G"/>
+                                        <constraint firstItem="mhA-QR-3jS" firstAttribute="leading" secondItem="tKD-fP-M2k" secondAttribute="leadingMargin" id="DSJ-Wu-jrB"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="label" destination="mhA-QR-3jS" id="86y-VM-WMg"/>
+                                    <outlet property="statusImg" destination="w0T-XI-x0f" id="LE8-rL-geD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -37,7 +58,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qk8-Ab-1qd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1756" y="-321"/>
+            <point key="canvasLocation" x="1756" y="-322"/>
         </scene>
         <!--Add Contact-->
         <scene sceneID="hQZ-l8-DMe">
@@ -75,9 +96,10 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ly-SI-h6a">
                                         <rect key="frame" x="8" y="136" width="492" height="30"/>
-                                        <state key="normal" title="Add">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                        <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="actionButtonTapped:" destination="s5a-UR-dNR" eventType="touchUpInside" id="dE1-ma-o7c"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -413,6 +435,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="offline" width="12" height="12"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>

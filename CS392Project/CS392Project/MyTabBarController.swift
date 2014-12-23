@@ -10,7 +10,7 @@ import UIKit
 
 class MyTabBarController: UITabBarController {
   
-  var userPhoneNumber: String!
+  var user: [String: String]!
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(true)
@@ -51,6 +51,8 @@ class MyTabBarController: UITabBarController {
   
   // To be implemented..
   private func login(userName: String, password: String) -> Bool {
+    // assume that I am logged in
+    self.user = ["firstname":"Burak", "lastname":"Tutanlar", "username":"buraktutanlar"]
     return true
   }
   
