@@ -16,10 +16,11 @@
 		CF1D0BB81A45B88C0081EB59 /* CS392ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0BB71A45B88C0081EB59 /* CS392ProjectTests.swift */; };
 		CF1D0BC21A45D4530081EB59 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0BC11A45D4530081EB59 /* MyTabBarController.swift */; };
 		CF1D0BC41A45DE1A0081EB59 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0BC31A45DE1A0081EB59 /* RegisterVC.swift */; };
-		CFA000E11A49FD25009DF2CB /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA000E01A49FD25009DF2CB /* ContactCell.swift */; };
 		CFA2D31C1A473BBA000458C8 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA2D31B1A473BBA000458C8 /* LoginVC.swift */; };
 		CFA2D31E1A47451D000458C8 /* ContactsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA2D31D1A47451D000458C8 /* ContactsTableVC.swift */; };
 		CFA2D3201A474D1A000458C8 /* AddContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA2D31F1A474D1A000458C8 /* AddContactVC.swift */; };
+		CFC0F5BC1A4B1BF800DD2972 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC0F5BB1A4B1BF800DD2972 /* MapKit.framework */; };
+		CFC0F5BE1A4B1FEC00DD2972 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC0F5BD1A4B1FEC00DD2972 /* MapVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,10 +47,11 @@
 		CF1D0BB71A45B88C0081EB59 /* CS392ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CS392ProjectTests.swift; sourceTree = "<group>"; };
 		CF1D0BC11A45D4530081EB59 /* MyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		CF1D0BC31A45DE1A0081EB59 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
-		CFA000E01A49FD25009DF2CB /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		CFA2D31B1A473BBA000458C8 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CFA2D31D1A47451D000458C8 /* ContactsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableVC.swift; sourceTree = "<group>"; };
 		CFA2D31F1A474D1A000458C8 /* AddContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactVC.swift; sourceTree = "<group>"; };
+		CFC0F5BB1A4B1BF800DD2972 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CFC0F5BD1A4B1FEC00DD2972 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFC0F5BC1A4B1BF800DD2972 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +76,7 @@
 		CF1D0B911A45B88C0081EB59 = {
 			isa = PBXGroup;
 			children = (
+				CFC0F5BB1A4B1BF800DD2972 /* MapKit.framework */,
 				CF1D0B9C1A45B88C0081EB59 /* CS392Project */,
 				CF1D0BB41A45B88C0081EB59 /* CS392ProjectTests */,
 				CF1D0B9B1A45B88C0081EB59 /* Products */,
@@ -93,6 +97,7 @@
 			children = (
 				CFA2D31F1A474D1A000458C8 /* AddContactVC.swift */,
 				CF1D0BC31A45DE1A0081EB59 /* RegisterVC.swift */,
+				CFC0F5BD1A4B1FEC00DD2972 /* MapVC.swift */,
 				CFA2D31D1A47451D000458C8 /* ContactsTableVC.swift */,
 				CFA2D31B1A473BBA000458C8 /* LoginVC.swift */,
 				CF1D0BC11A45D4530081EB59 /* MyTabBarController.swift */,
@@ -103,7 +108,6 @@
 				CF1D0BA81A45B88C0081EB59 /* Images.xcassets */,
 				CF1D0BAA1A45B88C0081EB59 /* LaunchScreen.xib */,
 				CF1D0B9D1A45B88C0081EB59 /* Supporting Files */,
-				CFA000E01A49FD25009DF2CB /* ContactCell.swift */,
 			);
 			path = CS392Project;
 			sourceTree = "<group>";
@@ -233,7 +237,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFA000E11A49FD25009DF2CB /* ContactCell.swift in Sources */,
 				CFA2D31E1A47451D000458C8 /* ContactsTableVC.swift in Sources */,
 				CF1D0BA41A45B88C0081EB59 /* SecondViewController.swift in Sources */,
 				CF1D0BC21A45D4530081EB59 /* MyTabBarController.swift in Sources */,
@@ -241,6 +244,7 @@
 				CFA2D31C1A473BBA000458C8 /* LoginVC.swift in Sources */,
 				CF1D0BA01A45B88C0081EB59 /* AppDelegate.swift in Sources */,
 				CF1D0BA21A45B88C0081EB59 /* FirstViewController.swift in Sources */,
+				CFC0F5BE1A4B1FEC00DD2972 /* MapVC.swift in Sources */,
 				CF1D0BC41A45DE1A0081EB59 /* RegisterVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

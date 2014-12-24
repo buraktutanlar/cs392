@@ -24,14 +24,14 @@ class ContactsTableVC: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = self.tableView.dequeueReusableCellWithIdentifier("contactCell") as ContactCell
+    let cell = self.tableView.dequeueReusableCellWithIdentifier("contactCell") as UITableViewCell
     if let user = getUser(indexPath) {
-      cell.label.text = user
+      cell.textLabel?.text = user
     } else {
       NSLog("A problem occurred while getting user from contacts!")
     }
     
-    cell.statusImg.image = getStatusImage(indexPath)
+    setStatusImage(cell, indexPath: indexPath)
     
     return cell
   }
@@ -51,11 +51,13 @@ class ContactsTableVC: UITableViewController {
     return nil
   }
   
-  private func getStatusImage(indexPath: NSIndexPath) -> UIImage {
+  private func setStatusImage(cell: UITableViewCell, indexPath: NSIndexPath) {
     if isUserOnline(indexPath) {
-      return UIImage(contentsOfFile: "online")
+      cell.imageView?.image = UIImage(named: "online")
+      cell.userInteractionEnabled = true
     } else {
-      return UIImage(contentsOfFile: "offline")
+      cell.imageView?.image = UIImage(named: "offline")
+      cell.userInteractionEnabled = false
     }
   }
   
@@ -79,9 +81,29 @@ class ContactsTableVC: UITableViewController {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "addContact" {
-      let addContactVC = segue.destinationViewController as AddContactVC
-      let myTabBarController = self.tabBarController as MyTabBarController
-      addContactVC.user = myTabBarController.user
+      prepareForAddContact(segue)
+    } else if segue.identifier == "map" {
+      prepareForMap(segue, sender: sender)
+    }
+  }
+  
+  private func prepareForAddContact(segue: UIStoryboardSegue) {
+    let addContactVC = segue.destinationViewController as AddContactVC
+    let myTabBarController = self.tabBarController as MyTabBarController
+    addContactVC.user = myTabBarController.user
+  }
+  
+  private func prepareForMap(segue: UIStoryboardSegue, sender: AnyObject?) {
+    let mapVC = segue.destinationViewController as MapVC
+    if let userToLocate = sender as? UITableViewCell {
+      if let indexPath = tableView.indexPathForCell(userToLocate) {
+        mapVC.userToLocate = contacts[indexPath.item]
+        NSLog("User to be located: " + mapVC.userToLocate.description)
+      } else {
+        NSLog("NSIndexPath of the cell tapped!")
+      }
+    } else {
+      NSLog("prepareForMap function is called from something other than a UITableViewCell")
     }
   }
   
