@@ -16,10 +16,10 @@
 		CF1D0BB81A45B88C0081EB59 /* CS392ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0BB71A45B88C0081EB59 /* CS392ProjectTests.swift */; };
 		CF1D0BC21A45D4530081EB59 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0BC11A45D4530081EB59 /* MyTabBarController.swift */; };
 		CF1D0BC41A45DE1A0081EB59 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0BC31A45DE1A0081EB59 /* RegisterVC.swift */; };
+		CFA205041A5C871C00E8BD94 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC0F5BB1A4B1BF800DD2972 /* MapKit.framework */; };
 		CFA2D31C1A473BBA000458C8 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA2D31B1A473BBA000458C8 /* LoginVC.swift */; };
 		CFA2D31E1A47451D000458C8 /* ContactsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA2D31D1A47451D000458C8 /* ContactsTableVC.swift */; };
 		CFA2D3201A474D1A000458C8 /* AddContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA2D31F1A474D1A000458C8 /* AddContactVC.swift */; };
-		CFC0F5BC1A4B1BF800DD2972 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC0F5BB1A4B1BF800DD2972 /* MapKit.framework */; };
 		CFC0F5BE1A4B1FEC00DD2972 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC0F5BD1A4B1FEC00DD2972 /* MapVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFC0F5BC1A4B1BF800DD2972 /* MapKit.framework in Frameworks */,
+				CFA205041A5C871C00E8BD94 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

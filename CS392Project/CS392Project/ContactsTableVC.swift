@@ -98,6 +98,7 @@ class ContactsTableVC: UITableViewController {
     if let userToLocate = sender as? UITableViewCell {
       if let indexPath = tableView.indexPathForCell(userToLocate) {
         mapVC.userToLocate = contacts[indexPath.item]
+        mapVC.user = (self.tabBarController as MyTabBarController).user
         NSLog("User to be located: " + mapVC.userToLocate.description)
       } else {
         NSLog("NSIndexPath of the cell tapped!")
