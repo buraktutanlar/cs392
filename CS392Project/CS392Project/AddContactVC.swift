@@ -103,6 +103,7 @@ class AddContactVC: UIViewController, UISearchBarDelegate {
   
   private func search(username: String) -> [String: String]? {
     // this is a dummy response
+    NSLog("[\"request\":\"searchUser\", \"requested\":\"" + username + "\"]")
     return ["firstname":"Burak", "lastname":"Tutanlar", "relation":"Already friend"]
   }
   

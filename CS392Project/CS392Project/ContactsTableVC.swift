@@ -10,8 +10,21 @@ import UIKit
 
 class ContactsTableVC: UITableViewController {
   
-  var contacts: [[String: String]]!
+  @IBOutlet weak var statusSwitch: UISwitch!
   
+  var contacts: [[String: String]]! = [
+    ["firstname":"Deniz", "lastname":"Sokmen", "username":"denizsokmen", "status":"online"],
+    ["firstname":"Ugur", "lastname":"Ozkan", "username":"ugurozkan", "status":"offline"],
+    ["firstname":"Arman", "lastname":"Garip", "username":"armangarip", "status":"online"],
+    ["firstname":"Osman", "lastname":"Sekerlen", "username":"osmansekerlen", "status":"offline"]
+  ]
+  
+  @IBAction func statesSwitched(sender: AnyObject) {
+    let myTabController = self.tabBarController as MyTabBarController
+    let user = myTabController.user
+    NSLog("[\"request\":\"setStatus\", \"requester\":\"" + user["username"]! + "\"]")
+    self.tableView.reloadData()
+  }
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
   }
@@ -28,7 +41,7 @@ class ContactsTableVC: UITableViewController {
     if let user = getUser(indexPath) {
       cell.textLabel?.text = user
     } else {
-      NSLog("A problem occurred while getting user from contacts!")
+      NSLog("A problem occurred while getting user from contacts, most probably it is blocked..")
     }
     
     setStatusImage(cell, indexPath: indexPath)
@@ -36,8 +49,44 @@ class ContactsTableVC: UITableViewController {
     return cell
   }
   
+  override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+    var blockAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Block") { (blockAction, indexPath) -> Void in
+      self.blockUser(indexPath)
+    }
+    
+    var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete") { (deleteAction, indexPath) -> Void in
+      self.deleteUser(indexPath)
+    }
+    
+    return [blockAction, deleteAction]
+  }
+  
+  private func blockUser(indexPath: NSIndexPath) {
+    let myTabBarController = self.tabBarController as MyTabBarController
+    let user = myTabBarController.user
+    let userToBlock = self.contacts[indexPath.item]
+    NSLog("[\"request\":\"blockUser\", \"requester\":\"" + user["username"]! + "\", \"requested\":\"" + userToBlock["username"]! + "\"]")
+    contacts.removeAtIndex(indexPath.item)
+    self.tableView.reloadData()
+  }
+  
+  private func deleteUser(indexPath: NSIndexPath) {
+    let myTabBarController = self.tabBarController as MyTabBarController
+    let user = myTabBarController.user
+    let userToDelete = self.contacts[indexPath.item]
+    NSLog("[\"request\":\"deleteUser\", \"requester\":\"" + user["username"]! + "\", \"requested\":\"" + userToDelete["username"]! + "\"]")
+    contacts.removeAtIndex(indexPath.item)
+    self.tableView.reloadData()
+  }
+  
+  override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    return true
+  }
+  
+  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {}
+
   private func getUser(indexPath: NSIndexPath) -> String? {
-    let user = self.contacts[indexPath.item]
+    let user = self.contacts[indexPath.item]    
     if let firstname = user["firstname"] {
       if let lastname = user["lastname"] {
         return firstname + " " + lastname
@@ -52,12 +101,12 @@ class ContactsTableVC: UITableViewController {
   }
   
   private func setStatusImage(cell: UITableViewCell, indexPath: NSIndexPath) {
-    if isUserOnline(indexPath) {
+    if isUserOnline(indexPath) && self.statusSwitch.on {
       cell.imageView?.image = UIImage(named: "online")
-      cell.userInteractionEnabled = true
+      cell.tag = 1
     } else {
       cell.imageView?.image = UIImage(named: "offline")
-      cell.userInteractionEnabled = false
+      cell.tag = 0
     }
   }
   
@@ -77,6 +126,20 @@ class ContactsTableVC: UITableViewController {
   
   @IBAction func addButtonTapped(sender: AnyObject) {
     performSegueWithIdentifier("addContact", sender: self)
+  }
+  
+  override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+    if identifier != "map" {
+      return true
+    }
+    
+    if let cell = sender as? UITableViewCell {
+      if cell.tag == 0 {
+        cell.selected = false
+        return false
+      }
+    }
+    return true
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
